@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transaction_converter"
+description = "Converts transactions exported from various exchanges to csv formats for various tracking apps"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["crypto", "tracker", "transactions", "export", "conversion"]
+license = {text = "MIT License"}
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
+dependencies = [
+    "pandas",
+]
+dynamic = ["version"]
