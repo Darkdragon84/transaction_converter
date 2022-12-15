@@ -1,20 +1,36 @@
 from enum import Enum
+from itertools import product
+
+PAIR_CON = "-"
 
 
-class Asset(Enum):
+class TransactionType(Enum):
+    WITHDRAW = "withdraw"
+    DEPOSIT = "deposit"
+    BUY = "buy"
+    SELL = "sell"
+    SWAP = "swap"
+    FEE = "fee"
+    EARN = "earn"
+    PAY = "pay"
+
+
+class Token(Enum):
     ALGO = "ALGO"
     ATOM = "ATOM"
     BNB = "BNB"
     BTC = "BTC"
     ETH = "ETH"
-    BTCDFI = "BTC-DFI"
     DFI = "DFI"
+    USDT = "USDT"
 
 
-ASSETS = [asset.value for asset in Asset]
+TOKENS = [str(token.value) for token in Token]
+PAIRS = [PAIR_CON.join([t1, t2]) for t1, t2 in product(TOKENS, TOKENS) if t1 != t2]
+ASSETS = TOKENS + PAIRS
 
 
 class Exchange(Enum):
     Bitpanda = "Bitpanda"
-    DeFiCake = "DeFiCake"
+    CakeDeFi = "CakeDeFi"
     Haru = "Haru"
