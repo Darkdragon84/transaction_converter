@@ -14,5 +14,6 @@ classifiers = [
 ]
 dependencies = [
     "pandas",
+    "attrs"
 ]
 dynamic = ["version"]
